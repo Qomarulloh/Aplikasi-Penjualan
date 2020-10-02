@@ -23,12 +23,13 @@ class View_Adapter (mCtx: Context, val ViewOrder: ArrayList<Order_Model>): Recyc
         holder.jmlOrder.text = Orderan.int_jmlOrder.toString()
         holder.diskon.text = Orderan.int_diskon.toString()
         holder.total.text = Orderan.int_totalHarga.toString()
+        holder.et_edit.setText(Orderan.int_jmlOrder.toString())
 
         holder.hapus.setImageResource(R.drawable.ic_baseline_delete_24)
 
         holder.hapus.setOnClickListener{
             val menuName = Orderan.str_nmMenu
-            var alertDialog = AlertDialog.Builder(mCtx).setTitle("Delete")
+            AlertDialog.Builder(mCtx).setTitle("Delete")
                 .setMessage("Yakin ingin hapus data : $menuName ?")
                 .setPositiveButton("Yes", DialogInterface.OnClickListener{
                         dialog, which -> if (MainActivity.dbHandler.deleteOrder(Orderan.str_id)){
@@ -36,6 +37,23 @@ class View_Adapter (mCtx: Context, val ViewOrder: ArrayList<Order_Model>): Recyc
                     notifyItemRemoved(position)
                     notifyItemRangeChanged(position, ViewOrder.size)
                     Toast.makeText(mCtx, "Barang $menuName dihapus", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(mCtx, "Terjadi kesalahan penghapusan", Toast.LENGTH_SHORT).show()
+                }
+                })
+                .setNegativeButton("No", DialogInterface.OnClickListener{
+                        dialog, which ->
+                }).setIcon(R.drawable.ic_baseline_warning_24).show()
+        }
+        holder.edit.setOnClickListener{
+            AlertDialog.Builder(mCtx).setTitle("Edit Jumlah Order")
+                .setMessage(holder.et_edit.text)
+                .setPositiveButton("Yes", DialogInterface.OnClickListener{
+                        dialog, which -> if (MainActivity.dbHandler.deleteOrder(Orderan.str_id)){
+                    ViewOrder.removeAt(position)
+                    notifyItemRemoved(position)
+                    notifyItemRangeChanged(position, ViewOrder.size)
+                    Toast.makeText(mCtx, "Berhasil edit data", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(mCtx, "Terjadi kesalahan penghapusan", Toast.LENGTH_SHORT).show()
                 }
@@ -58,6 +76,7 @@ class View_Adapter (mCtx: Context, val ViewOrder: ArrayList<Order_Model>): Recyc
         val diskon = itemView.tv_diskonView
         val total = itemView.tv_total
         val hapus = itemView.btn_delete
-
+        val edit = itemView.btn_edit
+        val et_edit = itemView.et_edit
     }
 }

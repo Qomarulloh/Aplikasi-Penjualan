@@ -8,10 +8,11 @@
 
     <TextView
         android:id="@+id/tv_namaView"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="TextView"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_delete"
         app:layout_constraintEnd_toStartOf="@+id/tv_hargaView"
         app:layout_constraintHorizontal_bias="0.5"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="TextView"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_namaView"
         app:layout_constraintEnd_toStartOf="@+id/tv_jmlOrderView"
         app:layout_constraintHorizontal_bias="0.5"
@@ -31,11 +33,12 @@
 
     <TextView
         android:id="@+id/tv_jmlOrderView"
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:text="jml"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_hargaView"
         app:layout_constraintEnd_toStartOf="@+id/tv_diskonView"
         app:layout_constraintHorizontal_bias="0.5"
@@ -47,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="dis"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_jmlOrderView"
         app:layout_constraintStart_toEndOf="@+id/tv_jmlOrderView" />
 
@@ -65,13 +69,36 @@
         android:layout_marginStart="16dp"
         android:text="TextView"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_diskonView"
-        app:layout_constraintStart_toEndOf="@+id/textView13" />
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="%"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_diskonView"
         app:layout_constraintStart_toEndOf="@+id/tv_diskonView" />
+
+    <ImageView
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_delete"
+        app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+        app:layout_constraintTop_toTopOf="@+id/btn_delete"
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+    <EditText
+        android:id="@+id/et_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="8dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

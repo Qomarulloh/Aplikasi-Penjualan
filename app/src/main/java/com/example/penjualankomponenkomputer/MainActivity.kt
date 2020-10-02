@@ -60,11 +60,11 @@ class MainActivity : AppCompatActivity() {
                 "Keyboard",85000,1,R.drawable.keyboard, "Merupakan papan ketik yang berfungsi untuk menampilkan output di layar monitor berupa angka, huruf, simbol-simbol, maupun perintah yang dapat dijalankan menggunakan keyboard."
             )
         )
-//        menu.add(
-//            Menu_Model(
-//                "Mouse",100000,2,R.drawable.mouse, "Sesuai dengan namanya,  bentuk dari perangkat ini menyerupai tikus. Alat yang diberi nama mouse ini berfungsi untuk menggerakan kursor pada layar monitor."
-//            )
-//        )
+        menu.add(
+            Menu_Model(
+                "Mouse",100000,2,R.drawable.mouse, "Sesuai dengan namanya,  bentuk dari perangkat ini menyerupai tikus. Alat yang diberi nama mouse ini berfungsi untuk menggerakan kursor pada layar monitor."
+            )
+        )
         val adapter = Menu_Adapter(this, menu)
         rv.layoutManager= GridLayoutManager(this, 2)
         rv.adapter=adapter
