@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Penjualan Komponen Komputer</string>
+    <string name="harga_format">Rp. %d</string>
+</resources>
