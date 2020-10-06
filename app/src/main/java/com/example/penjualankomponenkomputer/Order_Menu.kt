@@ -16,9 +16,11 @@ class Order_Menu : AppCompatActivity() {
         val receivedName = intent.getStringExtra("nama")
         val receivedHarga = intent.getStringExtra("harga")
         val receivedDiskon = intent.getStringExtra("diskon")
-//        val gambar = intent.getStringExtra("gambar")
-//        val gambars = gambar?.toInt()
-//        img_gambar.setImageResource(R.drawable.(gambars))
+        val receivedImage = intent.getStringExtra("image")
+        if(receivedImage != null){
+            img_gambar.setImageResource(receivedImage.toInt())
+        }
+
         tv_namaProduk.text = receivedName
         tv_hargaProduk.text = receivedHarga
         tv_diskonProduk.text = receivedDiskon

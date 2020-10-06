@@ -18,10 +18,10 @@ class Menu_Adapter (mCtx: Context, val ViewOrder: ArrayList<Menu_Model>): Recycl
         val Nmenu = itemView.tv_nama
         val Harga = itemView.tv_harga
         val diskon = itemView.tv_diskon
-        val img_produk = itemView.imageView
+        val img= itemView.imageView
         val desk = itemView.tc_des
         val btn_beli = itemView.btn_save
-        val context = itemView.getContext()
+        val context = itemView.context
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,10 +34,10 @@ class Menu_Adapter (mCtx: Context, val ViewOrder: ArrayList<Menu_Model>): Recycl
         holder.Nmenu.text = Orderan.nama
         holder.Harga.text = Orderan.harga.toString()
         holder.diskon.text = Orderan.diskon.toString()
-        holder.img_produk.setImageResource(ViewOrder.get(position).img_produk)
+        holder.img.setImageResource(ViewOrder[position].img_produk)
         holder.desk.text = Orderan.des
 
-        holder.img_produk.setOnClickListener{
+        holder.img.setOnClickListener{
             AlertDialog.Builder(mCtx).setTitle("Detail Produk").setMessage(holder.desk.text).show()
         }
 
@@ -46,7 +46,7 @@ class Menu_Adapter (mCtx: Context, val ViewOrder: ArrayList<Menu_Model>): Recycl
             intent.putExtra("nama", holder.Nmenu.text)
             intent.putExtra("harga", holder.Harga.text).toString()
             intent.putExtra("diskon", holder.diskon.text).toString()
-//            intent.putExtra("gambar", img.toString())
+            intent.putExtra("image", ViewOrder[position].img_produk.toString())
             holder.context.startActivity(intent)
         }
 
@@ -55,4 +55,8 @@ class Menu_Adapter (mCtx: Context, val ViewOrder: ArrayList<Menu_Model>): Recycl
     override fun getItemCount(): Int {
         return ViewOrder.size
     }
+}
+
+private operator fun Int.get(position: Int): String? {
+    return position.toString()
 }
